@@ -7,11 +7,11 @@ The project emphasizes **mental wellness, reflection, and mindful design** while
 
 ## Features
 
- **Clean and calming UI** for journaling
-  **Mood tracker** using emoji buttons
-  **Daily entry space** for writing thoughts
-  **Save button (ready for future JS integration)**
-  **Soft pastel theme with hover animations** for a soothing experience
+ - **Clean and calming UI** for journaling
+ - **Mood tracker** using emoji buttons
+ - **Daily entry space** for writing thoughts
+ - **Save button (ready for future JS integration)**
+ - **Soft pastel theme with hover animations** for a soothing experience
 
 
 
