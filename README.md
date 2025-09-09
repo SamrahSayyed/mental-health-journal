@@ -43,8 +43,8 @@ The project emphasizes **mental wellness, reflection, and mindful design** while
 
 ##  Inspiration
 
-This project was inspired by the importance of **mental health awareness**.
-Writing and tracking moods daily can help build emotional resilience and self-awareness.
+- This project was inspired by the importance of **mental health awareness**.
+- Writing and tracking moods daily can help build emotional resilience and self-awareness.
 
 
 
