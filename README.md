@@ -15,7 +15,7 @@ The project emphasizes **mental wellness, reflection, and mindful design** while
 
 
 
-## 📸 Preview
+##  Preview
 
 <img width="1537" height="787" alt="image" src="https://github.com/user-attachments/assets/c2db32fe-81b2-41ea-a995-aa3b999d7caa" />
 
