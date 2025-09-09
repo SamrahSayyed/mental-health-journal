@@ -1,0 +1,384 @@
+
+/*HOW-ARE-YOU-FEELING-PAGE*/
+body {
+  background-color:#FAF0CA;
+}
+
+
+ h2 {
+  color: #0D3B66;
+  font-family: "Montserrat";
+}
+
+.container {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+
+.topnav {
+  font-family: "Rouge Script";
+  font-size: 25px;
+  max-width: 100%;
+  margin: auto;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.landing {
+  padding-left: 20px;
+  font-size:8em;
+  color: #0D3B66;
+  font-family: "Rouge Script";
+}
+
+.heading {
+  padding-left: 20px;
+  font-size:8em;
+  font-family: "Rouge Script";
+}
+
+#borderimg {
+  border: 10px solid transparent;
+  padding: 15px;
+  border-image: url(border.png) 30 round;
+}
+
+.hryft {
+  margin: auto;
+  max-width: 100%;
+  text-align: center;
+  font-size: 40px;
+  color: #fe7459;
+  padding: 20px;
+}
+
+.animation {
+  
+  font-family: "Montserrat";
+  text-wrap: nowrap;
+  overflow: hidden;
+  animation: typing 2s steps(22) infinite
+  alternate-reverse;
+}
+
+@keyframes typing {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.moods button {
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  border-width: 0;
+  margin: 12px;
+  background: none;
+  font-size: 30px;
+  margin-bottom: 150px;
+}
+
+.moods button:hover {
+  /*background-color: #FFC2D1;*/
+  transform: translateY(-10px);
+}
+
+.moods button:focus {
+background-color: #F4D35E;
+}
+
+.feelings {
+  margin: auto;
+  max-width: 100%;
+  text-align: center;
+}
+
+/* Mood border colors */
+.mood-happy {
+  border-left: 4px solid #4CAF50; /* green */
+}
+.mood-confused {
+  border-left: 4px solid #FFC107; /* amber */
+}
+.mood-sad {
+  border-left: 4px solid #2196F3; /* blue */
+}
+.mood-angry {
+  border-left: 4px solid #f44336; /* red */
+}
+.mood-emotional {
+  border-left: 4px solid #9C27B0; /* purple */
+}
+
+.emoji-badge {
+  font-size: 20px;
+  margin-right: 6px;
+}
+
+
+.textarea-1 { /*share what's on your mind text*/
+  margin: auto;
+  max-width: 100%;
+  text-align: center;
+  font-size: 40px;
+  color: #0D3B66;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+textarea {  /*placeholder*/
+  margin: auto;
+  width: 80%;  
+  resize: none;
+  border-radius: 10px;
+  border-width: 2px;
+  height: 100px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-color: #0D3B66;
+  background-color:whitesmoke;
+  font-family: "Montserrat", sans-serif;
+}
+
+
+
+h2.quote {
+  font-family: "Montserrat";
+  font-size: 60px;
+  color: #0D3B66;
+  margin: auto;
+  margin: 20px;
+  max-width: 100%;
+  text-align: left;
+  text-wrap: left;
+  padding: 10px;
+}
+
+.quote-second{
+  color:#0D3B66;
+  font-family: "Montserrat";
+  font-size: 60px;
+  margin: auto;
+  margin: 20px;
+  max-width: 100%;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.tile {
+  margin: 50px;
+  display: inline-block;
+  margin-bottom: 150px;
+}
+
+.image {
+  width:100%;
+  margin: auto;
+  float: right;
+  height: 450px;
+  width: 450px;
+  margin-left: 20px;
+  border-radius: 20px;
+}
+
+a:link {
+  text-decoration: none;
+  color: #FAF0CA;
+}
+
+a:visited {
+  background-color: #0D3B66;
+  color: #FAF0CA;
+}
+
+a:hover {
+  background-color: #0D3B66;
+  color: #FAF0CA;
+  transform: translateY(-10px);
+}
+
+nav {
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+p {
+  color:#0D3B66;
+  font-family: "Montserrat";
+  font-size: 25px;
+  margin: auto;
+  max-width: 100%;
+  text-align: center;
+}
+
+.choose {
+  color:#0D3B66;
+  font-family: "Montserrat";
+  font-size: 40px;
+  margin: auto;
+  margin-top: 50px;
+  max-width: 100%;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+nav button {
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 10px;
+  border-width: 0;
+  padding: 10px;
+  margin: 12px;
+  background: none;
+  font-size: 25px;
+  color: #FAF0CA;
+  background-color: #0D3B66;
+}
+
+#content {
+  max-width: 800px;
+  margin: auto;
+  padding: 5px;
+  border-radius: 10px;
+  align-items: end;
+  text-align: center;
+  background-color: #FAF0CA;
+  font-family: "Montserrat", sans-serif;
+}
+
+
+/* DEMO-SPECIFIC STYLES */
+.main-tagline {
+  font-family: "Montserrat";
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid orange; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .04em; /* Adjust as needed */
+  animation: 
+    typing 4s steps(44) 1s 1 normal both,
+    blink-caret  450ms steps(44) infinite normal;
+}
+
+@keyframes blink-caret {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 50% }
+}
+
+.one-entry {
+
+  font-family: "Montserrat";
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid orange; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .01em; /* Adjust as needed */
+
+  animation: 
+    typing 4s steps(44) 1s 1 normal both,
+    blink-caret  450ms steps(44) infinite normal;
+
+  @keyframes typing {
+  from { width: 0 }
+  to { width: 20% }
+}
+}
+
+.save-btn {
+cursor: pointer;
+border-radius: 10px;
+border-color: #0D3B66;
+border-width: 0;
+background-color: #fe7459;
+color:#0D3B66;
+margin-top: 10px;
+padding: 10px;
+font-size: 15px;
+margin-bottom: 30px;
+
+}
+
+.save-btn:hover {
+  color: #fe7459;
+  background-color:#0D3B66;
+}
+
+.save-btn:active {
+  transform: translateY(4px);
+}
+
+#entry-list {
+  margin-top: 20px;
+  padding-left: 20px;
+  list-style-type: none; /*removes bullets*/
+  max-width: 600px;
+  font-family: 'Montserrat', sans-serif;
+  word-wrap: break-word;     /* Ensures long words break */
+}
+
+.entry-item {
+  margin-bottom: 10px;
+  background-color: #fff5e6;
+  padding: 10px;
+  border-left: 5px solid #f95738;
+  border-radius: 5px;
+  max-width: 100%;
+  word-wrap: break-word;     /* Break long words */
+  overflow-wrap: break-word; /* Modern support */
+  white-space: pre-wrap;     /* Keeps line breaks and wraps text */
+  box-sizing: border-box;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+  transition: all 0.2s ease;
+}
+
+.entry-time {
+  font-size: 11px;
+  color: #999;
+  text-align: right;
+  margin: 0;
+}
+
+
+.entry-content {
+  flex-grow: 1;
+}
+
+.delete-btn {
+  margin: auto;
+  text-align: center;
+  background: none;
+  border: none;
+  color: #f95738;
+  font-size: 16px;
+  cursor: pointer;
+  padding-top: 5px;
+  transition: color 0.2s ease;
+}
+
+.delete-btn:hover {
+  color: #b30000;
+}
+
+.copyright {
+  width: 100%;
+  height: 12%;
+  font-size: 12px;
+  background-color: #0D3B66;
+  color: #FAF0CA;
+  display: flex;
+  align-items: center;
+  background-size: 100% 100%;
+  justify-content: center;
+}

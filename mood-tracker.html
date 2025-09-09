@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mood Tracker</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #fdf6f0;
+      color: #333;
+      padding: 20px;
+    }
+
+    h1, h2, h3 {
+      color: #f95738;
+      margin-bottom: 10px;
+    }
+
+    .section {
+      margin-bottom: 30px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 10px;
+    }
+
+    .calendar div {
+      padding: 10px;
+      text-align: center;
+      border-radius: 5px;
+      background-color: #ffe8d4;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .calendar div:hover {
+      background-color: #fbc3a7;
+    }
+
+    .emoji-history {
+      font-size: 20px;
+    }
+
+    .tags span {
+      display: inline-block;
+      background: #f95738;
+      color: #fff;
+      padding: 4px 10px;
+      margin: 5px 5px 0 0;
+      border-radius: 20px;
+      font-size: 12px;
+    }
+
+    .affirmation {
+      background: #e0ffe0;
+      padding: 10px;
+      border-left: 5px solid #4CAF50;
+      border-radius: 5px;
+      font-style: italic;
+    }
+
+    .gratitude-input {
+      margin-top: 10px;
+    }
+
+    textarea, input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin-top: 10px;
+    }
+
+    button {
+      background-color: #f95738;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #d8432c;
+    }
+
+    #gratitude-list {
+      margin-top: 10px;
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Mood Tracker Dashboard</h1>
+
+  <!-- Mood Calendar -->
+  <div class="section">
+    <h2>Mood Calendar</h2>
+    <div class="calendar">
+      <div data-mood="happy">😊</div>
+      <div data-mood="sad">😢</div>
+      <div data-mood="confused">😐</div>
+      <div data-mood="angry">😡</div>
+      <div data-mood="emotional">😭</div>
+      <div data-mood="happy">😊</div>
+      <div data-mood="confused">😐</div>
+    </div>
+  </div>
+
+  <!-- Mood History -->
+  <div class="section">
+    <h2>Recent Moods</h2>
+    <div class="emoji-history" id="emoji-history">
+      😊 😊 😢 😊 😐 😐 😡
+    </div>
+  </div>
+
+  <!-- Mood Pie Chart -->
+  <div class="section">
+    <h2>Mood Stats</h2>
+    <canvas id="moodChart" width="400" height="200"></canvas>
+  </div>
+
+  <!-- Mood Journal with Tags -->
+  <div class="section">
+    <h2>Today's Journal</h2>
+    <textarea id="journalEntry" rows="4" placeholder="Write about your day..."></textarea>
+    <div class="tags">
+      <span>#grateful</span>
+      <span>#stressed</span>
+      <span>#motivated</span>
+      <span>#tired</span>
+      <span>#productive</span>
+    </div>
+    <button onclick="saveJournal()">Save Entry</button>
+  </div>
+
+  <!-- Affirmation -->
+  <div class="section">
+    <h2>Affirmation of the Day</h2>
+    <div class="affirmation" id="affirmation">
+      "You are doing your best, and that is enough."
+    </div>
+  </div>
+
+  <!-- Gratitude Log -->
+  <div class="section">
+    <h2>Gratitude Log</h2>
+    <input type="text" placeholder="I'm grateful for..." class="gratitude-input" id="gratitudeInput">
+    <button onclick="addGratitude()">Add</button>
+    <ul id="gratitude-list"></ul>
+  </div>
+
+  <script>
+    const gratitudeList = document.getElementById("gratitude-list");
+
+    function addGratitude() {
+      const input = document.getElementById("gratitudeInput");
+      const text = input.value.trim();
+      if (text !== "") {
+        const li = document.createElement("li");
+        li.textContent = text;
+        gratitudeList.appendChild(li);
+        input.value = "";
+      }
+    }
+
+    function saveJournal() {
+      const entry = document.getElementById("journalEntry").value.trim();
+      if (entry) alert("Journal saved!\n\n" + entry);
+    }
+
+    const ctx = document.getElementById('moodChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: ['Happy', 'Sad', 'Confused', 'Angry', 'Emotional'],
+        datasets: [{
+          data: [3, 1, 2, 1, 1],
+          backgroundColor: [
+            '#4CAF50', '#2196F3', '#FFC107', '#f44336', '#9C27B0'
+          ]
+        }]
+      },
+      options: {
+        responsive: true
+      }
+    });
+
+    // Random affirmation generator
+    const affirmations = [
+      "You are doing your best, and that is enough.",
+      "Breathe. You’re okay.",
+      "Small progress is still progress.",
+      "You are strong, even when you feel weak.",
+      "This too shall pass."
+    ];
+    document.getElementById("affirmation").textContent = affirmations[Math.floor(Math.random() * affirmations.length)];
+  </script>
+</body>
+</html>

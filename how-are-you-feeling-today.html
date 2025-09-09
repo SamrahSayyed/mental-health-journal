@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Mental Health Journal Project</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rouge+Script&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <!-- <div>
+    <h2 class="heading landing">Mental Health Journal</h2>
+  </div>
+  <div id="content">
+    <div class="container"  id="borderimg">
+    <section>
+    <h2 class="main-tagline">How are you feeling today?</h2>
+    <div class="moods">
+    <button class="happy">&#128512;</button>
+    <button class="confused">&#128528;</button>
+    <button class="sad">&#128532;</button>
+    <button class="angry">&#128545;</button>
+    <button class="emotional">&#128546;</button>
+    </div>
+    </section>
+
+    <section>
+    <h2>What's on your mind?</h2>
+    <textarea placeholder="Share what's on your mind..."></textarea>
+    <br>
+    <button class="save-btn">Save Entry</button>
+    </section>
+    </div>
+  </div> -->
+
+  <header><h1 class="landing">Mental Health Journal</h1></header>
+  
+  <section>
+    <h2 class="hryft animation">How are you feeling today?</h2>
+  <div class="moods hryft">
+  <button class="mood-btn" data-mood="happy">😊</button>
+  <button class="mood-btn" data-mood="confused">😐</button>
+  <button class="mood-btn" data-mood="sad">😢</button>
+  <button class="mood-btn" data-mood="angry">😡</button>
+  <button class="mood-btn" data-mood="emotional">😭</button>
+  </div>
+  </section>
+
+  <section class="feelings">
+    <h2 class="textarea-1">Share what's on your mind...</h2>
+    <textarea placeholder="Type what you're feeling and click on the moods above to save entry.."></textarea>
+    <br>
+    <button class="save-btn">Save Entry</button>
+    <ul id="entry-list" style="margin: auto; width: 100%; text-align: center;"></ul>
+
+  </section>
+
+  <footer>
+  <p class="copyright">&copy; Made with &#x1F9E1; by Samrah Sayyed</p>
+  </footer>
+</body>
+<script>
+  const saveBtn = document.querySelector('.save-btn');
+  const textarea = document.querySelector('textarea');
+  const entryList = document.getElementById('entry-list');
+  const emojiMap = {
+  happy: "😊",
+  confused: "😐",
+  sad: "😢",
+  angry: "😡",
+  emotional: "😭"
+};
+
+const moodColorClass = {
+  happy: "mood-happy",
+  confused: "mood-confused",
+  sad: "mood-sad",
+  angry: "mood-angry",
+  emotional: "mood-emotional"
+};
+
+  let selectedMood = ""; // global to store current mood
+
+// Mood button clicks
+document.querySelectorAll('.mood-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    selectedMood = btn.dataset.mood; // store which mood is selected
+  });
+});
+
+
+  saveBtn.addEventListener('click', () => {
+    const text = textarea.value.trim();
+    if (text !== "") {
+      const listItem = document.createElement('li');
+      listItem.className = 'entry-item ${moodColorClass[selectedMood] || ""}';
+
+      const now = new Date();
+      const dateTimeString = now.toLocaleString();
+      const moodEmoji = emojiMap[selectedMood] || "📝";
+
+      listItem.innerHTML = `
+        <div class="entry-content">
+          <p class="entry-text"><span class="emoji-badge">${moodEmoji}</span>${text}</p>
+          <p class="entry-time">${dateTimeString}</p>
+        </div>
+        <button class="delete-btn" title="Delete Entry">✖</button>
+      `;
+
+      entryList.appendChild(listItem);
+      textarea.value = "";
+
+      // Delete button functionality
+      listItem.querySelector('.delete-btn').addEventListener('click', () => {
+        listItem.remove();
+      });
+    }
+  });
+</script>
+
+
+</html>
